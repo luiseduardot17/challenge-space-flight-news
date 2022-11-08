@@ -17,7 +17,7 @@ const Section = () => {
     }
 
     const addArticle = () => {
-        setLimit(limit + 2);
+        setLimit(limit + 1);
     }
 
     useEffect(() => {
