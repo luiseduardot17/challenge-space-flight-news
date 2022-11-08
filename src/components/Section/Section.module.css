@@ -1,0 +1,20 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: gold;
+}
+
+.artigos {
+  width: 100%;
+  display: flex;
+  align-self: center;
+    flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn {
+  height: 40px;
+  background-color: #302e53;
+}

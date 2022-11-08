@@ -1,0 +1,35 @@
+.article {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 20vh;
+  border: 1px solid black;
+  color: black;
+}
+
+.article button {
+  height: 25px;
+  border-radius: 0;
+  text-align: center;
+  background-color: #d0d0d0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.data {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  background-color:
+}
+
+img {
+    top: 860px;
+    left: 286px;
+    width: 200px;
+    height: 150px;
+}
