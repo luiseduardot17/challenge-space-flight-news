@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 35%;
+  width: 60vw;
   gap: 50px;
-  padding: 20px;
+  padding: 50px;
   color: black;
 }
 
@@ -26,7 +26,7 @@
 
 .site {
   height: 20px;
-  width: 50px;
+  width: 80px;
   border-radius: 0;
   padding: 0;
   text-align: center;
@@ -38,6 +38,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .data {
