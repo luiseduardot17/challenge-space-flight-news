@@ -1,5 +1,7 @@
 import React from "react";
+import Button from '@mui/material/Button';
 import S from "./Article.module.css";
+import Modal from "../Modal/Modal";
 
 const Article = ({ imagem, titulo, data, site, sumario }) => {
   return (
@@ -17,11 +19,11 @@ const Article = ({ imagem, titulo, data, site, sumario }) => {
             </button>
           </div>
           <p>{sumario}</p>
-          <button className={S.btnMais}>Ver mais</button>
+          <Button variant="contained" className={S.btnMais}>Ver mais</Button>
         </div>
       </div>
 
-      <div className={S.artigo2}>
+      {/* <div className={S.artigo2}>
         <div className={S.container}>
           <h2>{titulo}</h2>
           <div className={S.data}>
@@ -31,12 +33,12 @@ const Article = ({ imagem, titulo, data, site, sumario }) => {
             </button>
           </div>
           <p>{sumario}</p>
-          <button className={S.btnMais}>Ver mais</button>
+          <Button variant="contained" className={S.btnMais}>Ver mais</Button>
         </div>
         <div>
           <img src={imagem} />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
