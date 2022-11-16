@@ -12,7 +12,12 @@ section {
   justify-content: space-around;
 }
 
+.containerBtn {
+  padding-bottom: 50px;
+  padding-top: 80px;
+}
+
 .btn {
   height: 40px;
-  background-color: #302e53;
+  color: #d07017;
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import Button from '@mui/material/Button';
 import Article from '../Article/Article';
 import S from './Section.module.css';
 
 const Section = () => {
     const [article, setArticle] = useState ([]);
-    const [limit, setLimit] = useState(2);
+    const [limit, setLimit] = useState(10);
 
 
     async function handleReq() {
@@ -17,7 +18,7 @@ const Section = () => {
     }
 
     const addArticle = () => {
-        setLimit(limit + 1);
+        setLimit(limit + 10);
     }
 
     useEffect(() => {
@@ -40,8 +41,8 @@ const Section = () => {
         );
       })}
         </div>
-      <div>
-        <button className={S.btn} onClick={addArticle}>Carregar mais</button>
+      <div className={S.containerBtn}>
+        <Button variant="contained" className={S.btn} onClick={addArticle}>Carregar mais</Button>
       </div>
     </section>
     
