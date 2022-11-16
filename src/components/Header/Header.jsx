@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../Input/Input'
 import Select from '../Select/Select'
 import S from './Header.module.css'
+import { IoIosRocket } from "react-icons/io";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
       <Input type="search" name={"busca"} placeholder="Search"/>
       <Select />
       <div className={S.titulo}>
-        <p>🚀</p>
+        <IoIosRocket/>
         <h1>Space Flight News</h1>
       </div>
     </div>
