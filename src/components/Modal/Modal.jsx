@@ -4,6 +4,7 @@ import Article from "../Article/Article";
 import S from "./Modal.module.css";
 
 const ModalDetalhes = () => {
+  
   const [open, setOpen] = useState(false);
 
   const abrirModal = () => {
@@ -29,4 +30,5 @@ const ModalDetalhes = () => {
   );
 };
 
-export default Modal;
+
+export default ModalDetalhes;
