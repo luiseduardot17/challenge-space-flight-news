@@ -1,9 +1,20 @@
-import React from "react";
+import React,{useState} from "react";
 import Button from '@mui/material/Button';
 import S from "./Article.module.css";
-import abrirModal from "../Modal/Modal";
+import ModalDetalhes from "../Modal/Modal";
 
 const Article = ({ imagem, titulo, data, site, sumario }) => {
+
+  const [open, setOpen] = useState(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className={S.article}>
       <div className={S.artigo1}>
@@ -19,12 +30,16 @@ const Article = ({ imagem, titulo, data, site, sumario }) => {
             </button>
           </div>
           <p>{sumario}</p>
-          <Button variant="contained" className={S.btnMais} onClick={abrirModal} >Ver mais</Button>
-          
+          <Button variant="contained" className={S.btnMais} onClick={openModal} >Ver mais</Button>
+          <ModalDetalhes open={open} handleClose={closeModal}/>
         </div>
       </div>
+      
     </div>
+    
   );
+  
+  
 };
 
 export default Article;
