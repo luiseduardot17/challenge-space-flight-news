@@ -19,7 +19,11 @@ const Header = () => {
   }, [busca])
 
   {artigosFiltrados.map((artigo) => (
-    <Section key={article}/>
+    <Article key={index}
+    imagem={artigo.imageUrl}
+    titulo={artigo.title}
+    data={artigo.publishedAt}
+    sumario={artigo.summary} />
   ))}
 
   return (
