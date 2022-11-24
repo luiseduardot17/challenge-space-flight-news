@@ -6,15 +6,13 @@ import S from './Section.module.css';
 const Section = () => {
     const [article, setArticle] = useState ([]);
     const [limit, setLimit] = useState(10);
-
-
+    
     async function handleReq() {
         const url = `https://api.spaceflightnewsapi.net/v3/articles?_limit=${limit}`;
 
         const response = await fetch(url);
         const json = await response.json();
-        setArticle([...article,...json]);
-        console.log(json);
+        setArticle([...json]);
     }
 
     const addArticle = () => {
