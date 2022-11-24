@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import Article from '../Article/Article';
 import S from './Section.module.css';
+import ModalDetalhes from '../Modal/Modal';
 
 const Section = () => {
     const [article, setArticle] = useState ([]);
@@ -42,7 +43,9 @@ const Section = () => {
       <div className={S.containerBtn}>
         <Button variant="contained" className={S.btn} onClick={addArticle}>Carregar mais</Button>
       </div>
+     
     </section>
+    
     
   )
 }

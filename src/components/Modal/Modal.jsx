@@ -25,20 +25,21 @@ const muiButton = {
   bgcolor: "#302e53",
 };
 
-const ModalDetalhes = ({ open, handleClose }) => {
-  const [article, setArticle] = useState([]);
+const ModalDetalhes = ({ open, handleClose, id }) => {
+  const [article] = useState([]);
 
   return (
     <Modal
       open={open}
       onClose={handleClose}
+      id={article.id}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
         <div className={S.container}>
         <div>
-              <img imagem={setArticle.imageUrl} />
+              <img src={article.imageUrl} />
               </div>
               <div className={S.containerContent}>
               <Typography
@@ -47,7 +48,7 @@ const ModalDetalhes = ({ open, handleClose }) => {
                 component="h2"
                 align="center"
               >
-                titulo={setArticle.title}
+                titulo={article.title}
               </Typography>
               <Typography
                 id="modal-modal-title"
@@ -55,21 +56,21 @@ const ModalDetalhes = ({ open, handleClose }) => {
                 component="h6"
                 align="left"
               >
-                data={setArticle.publishedAt}
+                data={article.publishedAt}
               </Typography>
               <Typography
                 id="modal-modal-description"
                 sx={{ mt: 2 }}
                 align="center"
               >
-                sumario={setArticle.summary}
+                sumario={article.summary}
               </Typography>
               </div>
         </div>
             
               
             
-        <Button variant="contained" sx={muiButton}>
+        <Button variant="contained" sx={muiButton} href={article.url}>
           Ir para o site
         </Button>
       </Box>

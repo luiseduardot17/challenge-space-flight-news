@@ -1,9 +1,11 @@
 .container {
     display: flex;
+    height: 50%;
     
 }
 
 .containerContent {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
