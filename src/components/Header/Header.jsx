@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import S from "./Header.module.css";
 import { TextField } from "@mui/material";
 import { IoIosRocket, IoIosSearch } from "react-icons/io";
@@ -6,8 +6,22 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import Article from "../Article/Article";
+import Section from "../Section/Section";
 
 const Header = () => {
+  const [article, setArticle] = useState ([]);
+  const [busca, setBusca] = useState('');
+  
+  const artigosFiltrados = useMemo(() => {
+    const lowerBusca = busca.toLowerCase();
+    return article.filter((artigo)=> artigo.toLowerCase().includes(lowerBusca));
+  }, [busca])
+
+  {artigosFiltrados.map((artigo) => (
+    <Section key={article}/>
+  ))}
+
   return (
     <div className={S.header}>
       <div className={S.searchArea}>
@@ -17,6 +31,8 @@ const Header = () => {
           label="Search"
           variant="outlined"
           size="small"
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
         />
 
         <IoIosSearch size="25px" />
@@ -28,8 +44,8 @@ const Header = () => {
             id="demo-select-small"
             label="Ordenar"
           >
-            <MenuItem value={10}>Mais antigas</MenuItem>
-            <MenuItem value={20}>Mais novas</MenuItem>
+            <MenuItem value={1}>Mais antigas</MenuItem>
+            <MenuItem value={2}>Mais novas</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -40,6 +56,7 @@ const Header = () => {
       <div className={S.titulo}>
         <h1>Space Flight News</h1>
       </div>
+      
     </div>
   );
 };
