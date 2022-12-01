@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
 import Button from '@mui/material/Button';
 import S from "./Article.module.css";
 import ModalDetalhes from "../Modal/Modal";
