@@ -11,6 +11,7 @@ section {
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  padding-top: 15px;
 }
 
 .containerBtn {
