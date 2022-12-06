@@ -31,8 +31,8 @@ const Header = () => {
       <div className={S.searchArea}>
         <TextField
           id="outlined-basic"
-          placeholder="NASA"
-          label="Search"
+          placeholder="SpaceX..."
+          label="Pesquisar"
           variant="outlined"
           size="small"
           value={busca}
