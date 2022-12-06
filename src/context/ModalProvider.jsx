@@ -1,26 +1,37 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from "react";
 
 export const ModalContext = createContext();
 
 const ModalProvider = ({ children }) => {
+  const [article, setArticle] = useState([]);
 
-    const [bd, setBd] = useState([]);
+  const [limit, setLimit] = useState(10);
 
-    function handleClick(e) {
-        e.preventDefault();
-        setBd([...bd, article]);
-        };
+  async function handleReq() {
+    const url = `https://api.spaceflightnewsapi.net/v3/articles?_limit=${limit}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    setArticle([...json]);
+    console.log(json)
+  }
 
-    const contexto = {
-        bd: bd,
-        handleClick: handleClick,
-    };
+  const addArticle = () => {
+    setLimit(limit + 10);
+  };
+
+  useEffect(() => {
+    handleReq();
+  }, [limit]);
+
+  const contexto = {
+    article: article,
+    handleReq: handleReq,
+    addArticle: addArticle,
+  };
 
   return (
-    <ModalContext.Provider value={contexto}>
-      {children}
-    </ModalContext.Provider>
-  )
+    <ModalContext.Provider value={contexto}>{children}</ModalContext.Provider>
+  );
 };
 
-export default ModalProvider
+export default ModalProvider;

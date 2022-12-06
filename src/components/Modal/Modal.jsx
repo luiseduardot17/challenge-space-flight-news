@@ -26,23 +26,21 @@ const muiButton = {
   bgcolor: "#302e53",
 };
 
-
-const ModalDetalhes = ({ open, handleClose}) => {
-
-  const {bd} = useContext(ModalContext)
+const ModalDetalhes = ({ open, handleClose, id }) => {
+  const { article, limit } = useContext(ModalContext);
 
   return (
     <Modal
       open={open}
       onClose={handleClose}
-      // id={id}
+      id={article.id}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
+      <Box sx={style} id={article.id} limit={1}>
         <div className={S.container}>
           <div>
-            <img src={bd.imagem} />
+            <img src={article.imageUrl} />
           </div>
           <div className={S.containerContent}>
             <Typography
@@ -50,30 +48,36 @@ const ModalDetalhes = ({ open, handleClose}) => {
               variant="h6"
               component="h2"
               align="center"
-            >
-              {bd.titulo}
-            </Typography>
+            ></Typography>
             <Typography
               id="modal-modal-title"
               variant="h6"
               component="h6"
               align="left"
             >
-              {bd.data}
+              {article.publishedAt}
             </Typography>
             <Typography
               id="modal-modal-description"
               sx={{ mt: 2 }}
               align="center"
             >
-              {bd.sumario}
+              {article.summary}
             </Typography>
           </div>
         </div>
-
-        <Button variant="contained" sx={muiButton} href={bd.url}>
-          Ir para o site
-        </Button>
+        {article.map((article, id) => {
+          return (
+            <Button
+              variant="contained"
+              sx={muiButton}
+              key={id}
+              href={article.url}
+            >
+              Ir para o site
+            </Button>
+          );
+        })}
       </Box>
     </Modal>
   );
