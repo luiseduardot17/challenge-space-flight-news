@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import S from "./Article.module.css";
 import ModalDetalhes from "../Modal/Modal";
 
-const Article = ({ imagem, titulo, data, site, sumario, id }) => {
+const Article = ({ imagem, titulo, data, site, sumario, id, url }) => {
 
   const [open, setOpen] = useState(false);
   
@@ -15,6 +15,11 @@ const Article = ({ imagem, titulo, data, site, sumario, id }) => {
   const closeModal = () => {
     setOpen(false);
   };
+
+  const idModal = {id}
+  const urlModal = {url}
+
+  
 
   return (
     <div className={S.article}>
@@ -31,8 +36,9 @@ const Article = ({ imagem, titulo, data, site, sumario, id }) => {
             </button>
           </div>
           <p>{sumario}</p>
+          
           <Button variant="contained" className={S.btnMais} onClick={openModal} >Ver mais</Button>
-          <ModalDetalhes open={open} handleClose={closeModal} id={id}/>
+          <ModalDetalhes open={open} handleClose={closeModal} idModal={id} imagemModal={imagem} tituloModal={titulo} dataModal={data} sumarioModal={sumario} urlModal={url}/>
         </div>
       </div>
       
