@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import S from "./Modal.module.css";
-import { ModalContext } from "../../context/ModalProvider";
 
 const style = {
   position: "absolute",
@@ -13,8 +12,8 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 700,
   height: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
+  bgcolor: "#1E2022",
+  border: "2px solid #D07017",
   boxShadow: 24,
   p: 4,
 };
@@ -26,58 +25,59 @@ const muiButton = {
   bgcolor: "#302e53",
 };
 
-const ModalDetalhes = ({ open, handleClose, id }) => {
-  const { article, limit } = useContext(ModalContext);
+const ModalDetalhes = ({ open, handleClose, idModal, imagemModal, tituloModal, dataModal, sumarioModal, urlModal }) => {
+  
 
   return (
     <Modal
       open={open}
       onClose={handleClose}
-      id={article.id}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style} id={article.id} limit={1}>
+      <Box sx={style}>
         <div className={S.container}>
           <div>
-            <img src={article.imageUrl} />
+            <img src={imagemModal} />
           </div>
           <div className={S.containerContent}>
             <Typography
               id="modal-modal-title"
               variant="h6"
               component="h2"
-              align="center"
-            ></Typography>
+              align="justify"
+            ><strong>{tituloModal}</strong>
+            </Typography>
             <Typography
               id="modal-modal-title"
-              variant="h6"
+              variant="p"
               component="h6"
               align="left"
+              sx={{ mt: 2}}
             >
-              {article.publishedAt}
+              {dataModal}
             </Typography>
             <Typography
               id="modal-modal-description"
-              sx={{ mt: 2 }}
-              align="center"
+              variant="p"
+              sx={{ mt: 2}}
+              align="justify"
             >
-              {article.summary}
+              {sumarioModal}
             </Typography>
           </div>
         </div>
-        {article.map((article, id) => {
-          return (
+        
             <Button
               variant="contained"
               sx={muiButton}
-              key={id}
-              href={article.url}
+              key={idModal}
+              href={urlModal}
             >
               Ir para o site
             </Button>
-          );
-        })}
+          
+        
       </Box>
     </Modal>
   );
